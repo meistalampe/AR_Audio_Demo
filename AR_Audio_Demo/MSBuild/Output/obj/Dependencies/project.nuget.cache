@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "l6tLPBC+qyiUV47JaBJe8tQNVSwW1ZZy7bX7/WUG+iYPIsx+PgJRcZkQptEnsyJFegHzfn3LPtZ1qNZbIRWrow==",
+  "success": true,
+  "projectFilePath": "E:\\GitHub\\AR_Audio_Demo\\AR_Audio_Demo\\Assets\\AR_Audio_Demo.Dependencies.msb4u.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.windows.mixedreality.dotnetwinrt\\0.5.1049\\microsoft.windows.mixedreality.dotnetwinrt.0.5.1049.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\msbuildforunity\\0.9.1-123842\\msbuildforunity.0.9.1-123842.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\system.drawing.primitives\\4.3.0\\system.drawing.primitives.4.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}
