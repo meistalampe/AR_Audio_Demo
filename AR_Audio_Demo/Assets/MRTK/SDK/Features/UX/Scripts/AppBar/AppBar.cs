@@ -26,7 +26,9 @@ namespace Microsoft.MixedReality.Toolkit.UI
             Adjust = 2,
             Hide = 4,
             Show = 8,
-            Done = 16
+            Done = 16,
+            Play = 32,
+            Pause = 64,
         }
 
         public enum AppBarDisplayTypeEnum
@@ -39,7 +41,9 @@ namespace Microsoft.MixedReality.Toolkit.UI
         {
             Default,
             Manipulation,
-            Hidden
+            Hidden,
+            Playing,
+            Paused
         }
 
         #endregion
@@ -157,6 +161,20 @@ namespace Microsoft.MixedReality.Toolkit.UI
             set { useAdjust = value; }
         }
 
+        [Tooltip("Should the AppBar have an play button")]
+        [SerializeField]
+        private bool usePlay = true;
+
+        /// <summary>
+        /// Should the AppBar have an adjust button
+        /// </summary>
+        public bool UsePlay
+        {
+            get { return usePlay; }
+            set { usePlay = value; }
+        }
+
+
         [Tooltip("Should the AppBar have a hide button")]
         [SerializeField]
         private bool useHide = true;
@@ -183,6 +201,19 @@ namespace Microsoft.MixedReality.Toolkit.UI
         {
             get => adjustIcon;
             set => adjustIcon = value;
+        }
+
+        [Tooltip("The play button texture")]
+        [SerializeField]
+        private Texture playIcon = null;
+
+        /// <summary>
+        /// The play button texture
+        /// </summary>
+        public Texture PlayIcon
+        {
+            get => playIcon;
+            set => playIcon = value;
         }
 
         [Tooltip("The done button texture")]
@@ -222,6 +253,19 @@ namespace Microsoft.MixedReality.Toolkit.UI
         {
             get => removeIcon;
             set => removeIcon = value;
+        }
+
+        [Tooltip("The Pause button texture")]
+        [SerializeField]
+        private Texture pauseIcon = null;
+
+        /// <summary>
+        /// The pause button texture
+        /// </summary>
+        public Texture PauseIcon
+        {
+            get => pauseIcon;
+            set => pauseIcon = value;
         }
 
         [Tooltip("The show button texture")]
@@ -353,6 +397,10 @@ namespace Microsoft.MixedReality.Toolkit.UI
                     State = AppBarStateEnum.Manipulation;
                     break;
 
+                case ButtonTypeEnum.Play:
+                    State = AppBarStateEnum.Playing;
+                    break;
+
                 case ButtonTypeEnum.Hide:
                     State = AppBarStateEnum.Hidden;
                     break;
@@ -363,6 +411,10 @@ namespace Microsoft.MixedReality.Toolkit.UI
 
                 case ButtonTypeEnum.Done:
                     State = AppBarStateEnum.Default;
+                    break;
+
+                case ButtonTypeEnum.Pause:
+                    State = AppBarStateEnum.Paused;
                     break;
 
                 default:
@@ -380,7 +432,9 @@ namespace Microsoft.MixedReality.Toolkit.UI
             }
             Target.gameObject.SetActive(false);
             gameObject.SetActive(false);
+            Destroy(transform.parent.gameObject);
         }
+
 
         private void InitializeButtons()
         {
@@ -561,6 +615,11 @@ namespace Microsoft.MixedReality.Toolkit.UI
                     if (!UseAdjust)
                         return false;
                     break;
+
+                case ButtonTypeEnum.Play:
+                    if (!UsePlay)
+                        return false;
+                    break;
             }
 
             switch (State)
@@ -575,6 +634,7 @@ namespace Microsoft.MixedReality.Toolkit.UI
                         case AppBar.ButtonTypeEnum.Remove:
                         case AppBar.ButtonTypeEnum.Adjust:
                         case AppBar.ButtonTypeEnum.Custom:
+                        case AppBar.ButtonTypeEnum.Play:
                             return true;
 
                         default:
@@ -605,6 +665,36 @@ namespace Microsoft.MixedReality.Toolkit.UI
                             return false;
                     }
 
+                case AppBarStateEnum.Playing:
+                    switch(buttonType)
+					{
+                        // Show pause Button
+                        case AppBar.ButtonTypeEnum.Hide:
+                        case AppBar.ButtonTypeEnum.Remove:
+                        case AppBar.ButtonTypeEnum.Adjust:
+                        case AppBar.ButtonTypeEnum.Custom:
+                        case AppBar.ButtonTypeEnum.Pause:
+                            return true;
+
+                        default:
+                            return false;
+                    }
+
+                case AppBarStateEnum.Paused:
+                    switch (buttonType)
+                    {
+                        // Show pause Button
+                        case AppBar.ButtonTypeEnum.Hide:
+                        case AppBar.ButtonTypeEnum.Remove:
+                        case AppBar.ButtonTypeEnum.Adjust:
+                        case AppBar.ButtonTypeEnum.Custom:
+                        case AppBar.ButtonTypeEnum.Play:
+                            return true;
+
+                        default:
+                            return false;
+                    }
+
             }
         }
 
@@ -624,22 +714,34 @@ namespace Microsoft.MixedReality.Toolkit.UI
                     displayOrder = 1;
                     break;
 
+                case ButtonTypeEnum.Play:
+                    buttonText = "Play";
+                    buttonIcon = PlayIcon;
+                    displayOrder = 2;
+                    break;
+
                 case ButtonTypeEnum.Adjust:
                     buttonText = "Adjust";
                     buttonIcon = AdjustIcon;
-                    displayOrder = 2;
+                    displayOrder = 3;
                     break;
 
                 case ButtonTypeEnum.Remove:
                     buttonText = "Remove";
                     buttonIcon = RemoveIcon;
-                    displayOrder = 3;
+                    displayOrder = 4;
                     break;
 
                 case ButtonTypeEnum.Done:
                     buttonText = "Done";
                     buttonIcon = DoneIcon;
-                    displayOrder = 4;
+                    displayOrder = 5;
+                    break;
+
+                case ButtonTypeEnum.Pause:
+                    buttonText = "Pause";
+                    buttonIcon = PauseIcon;
+                    displayOrder = 2;
                     break;
 
                 default:

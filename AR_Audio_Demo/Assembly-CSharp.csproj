@@ -65,6 +65,9 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\_Classes\Sound.cs" />
     <Compile Include="Assets\_Scripts\AudioManager.cs" />
+    <Compile Include="Assets\_Scripts\PlaySoundOnCollision.cs" />
+    <Compile Include="Assets\_Scripts\RobotCom.cs" />
+    <Compile Include="Assets\_Scripts\RobotManager.cs" />
     <Compile Include="Assets\AzureSpatialAnchors.SDK\Plugins\Android\AndroidHelper.cs" />
     <Compile Include="Assets\AzureSpatialAnchors.SDK\Plugins\ARFoundation\AnchorHelpers.cs" />
     <Compile Include="Assets\AzureSpatialAnchors.SDK\Plugins\ARFoundation\UnityARFoundationAnchorComponent.cs" />
@@ -75,13 +78,18 @@
     <Compile Include="Assets\AzureSpatialAnchors.SDK\Scripts\SpatialAnchorExtensions.cs" />
     <Compile Include="Assets\AzureSpatialAnchors.SDK\Scripts\SpatialAnchorManager.cs" />
     <Compile Include="Assets\AzureSpatialAnchors.SDK\Scripts\UnityDispatcher.cs" />
-    <Compile Include="Assets\PlaySoundOnCollision.cs" />
+    <Compile Include="Assets\HeadCardes Guitar Sound\Guitar_Sounds.cs" />
+    <Compile Include="Assets\MoveMotionPack\SampleScene\Scripts\PlayManager.cs" />
+    <Compile Include="Assets\SpawnedObjectHandler.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\MRTK\Providers\Version.txt" />
+    <None Include="Assets\MoveMotionPack\SampleScene\Shaders\ReflectiveDiffuseSpecTransp.shader" />
+    <None Include="Assets\MoveMotionPack\SampleScene\Shaders\DiffuseReflectiveShader.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\MRTK\Services\Version.txt" />
+    <None Include="Assets\MoveMotionPack\SampleScene\Shaders\ReflectiveDiffuseSpec.shader" />
     <None Include="Assets\MRTK\Services\License.txt" />
     <None Include="Assets\MRTK\Providers\License.txt" />
     <None Include="Assets\AzureSpatialAnchors.SDK\Plugins\HoloLens\version.txt" />

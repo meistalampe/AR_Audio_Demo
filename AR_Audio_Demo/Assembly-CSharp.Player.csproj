@@ -1326,6 +1326,9 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\_Classes\Sound.cs" />
     <Compile Include="Assets\_Scripts\AudioManager.cs" />
+    <Compile Include="Assets\_Scripts\PlaySoundOnCollision.cs" />
+    <Compile Include="Assets\_Scripts\RobotCom.cs" />
+    <Compile Include="Assets\_Scripts\RobotManager.cs" />
     <Compile Include="Assets\AzureSpatialAnchors.SDK\Plugins\Android\AndroidHelper.cs" />
     <Compile Include="Assets\AzureSpatialAnchors.SDK\Plugins\ARFoundation\AnchorHelpers.cs" />
     <Compile Include="Assets\AzureSpatialAnchors.SDK\Plugins\ARFoundation\UnityARFoundationAnchorComponent.cs" />
@@ -1336,7 +1339,9 @@
     <Compile Include="Assets\AzureSpatialAnchors.SDK\Scripts\SpatialAnchorExtensions.cs" />
     <Compile Include="Assets\AzureSpatialAnchors.SDK\Scripts\SpatialAnchorManager.cs" />
     <Compile Include="Assets\AzureSpatialAnchors.SDK\Scripts\UnityDispatcher.cs" />
-    <Compile Include="Assets\PlaySoundOnCollision.cs" />
+    <Compile Include="Assets\HeadCardes Guitar Sound\Guitar_Sounds.cs" />
+    <Compile Include="Assets\MoveMotionPack\SampleScene\Scripts\PlayManager.cs" />
+    <Compile Include="Assets\SpawnedObjectHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
